@@ -2,19 +2,19 @@ package components;
 
 public class Windscreen {
 
-    private String size;
+    private int size;
     private String material;
 
-    public Windscreen(String size, String material) {
+    public Windscreen(int size, String material) {
         this.size = size;
         this.material = material;
     }
 
-    public String getSize() {
+    public int getSize() {
         return size;
     }
 
-    public void setSize(String size) {
+    public void setSize(int size) {
         this.size = size;
     }
 
