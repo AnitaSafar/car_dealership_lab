@@ -2,7 +2,7 @@ package vehicles;
 
 import components.*;
 
-public class ElectricCar extends Car {
+public class HybridCar extends Car{
 
     private String petrolType;
     private Windscreen windscreen;
@@ -12,7 +12,7 @@ public class ElectricCar extends Car {
     private Battery battery;
     private BrakePad brakePad;
 
-    public ElectricCar(FuelType fuelType, String make, String model, int numOfDoors, double price, String petrolType, Windscreen windscreen, SteeringWheel steeringWheel, Engine engine, Tyre tyre, Battery battery, BrakePad brakePad) {
+    public HybridCar(FuelType fuelType, String make, String model, int numOfDoors, double price, String petrolType, Windscreen windscreen, SteeringWheel steeringWheel, Engine engine, Tyre tyre, Battery battery, BrakePad brakePad) {
         super(fuelType, make, model, numOfDoors, price);
         this.petrolType = petrolType;
         this.windscreen = windscreen;
