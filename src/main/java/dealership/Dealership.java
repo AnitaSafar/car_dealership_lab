@@ -1,5 +1,6 @@
 package dealership;
 
+import customer.Customer;
 import vehicles.Car;
 import vehicles.PetrolCar;
 
@@ -39,7 +40,9 @@ public class Dealership {
         return this.stock.size();
     }
 
-    public void sellCar(Car car) {
+    public void sellCar(Car car, Customer customer) {
         this.stock.remove(car);
+        customer.buyCar(car);
+        this.till += car.getPrice();
     }
 }

@@ -8,6 +8,7 @@ import vehicles.FuelType;
 import vehicles.PetrolCar;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 
 public class CustomerTest {
 
@@ -53,13 +54,12 @@ public class CustomerTest {
         assertEquals(false, customer.hasEnoughMoney(car2));
     }
 
-//    @Test
-//    public void canBuyACar() {
-//        dealership.addCarToStock(car);
-//        customer.buyCar(car);
-//        assertEquals(0, dealership.stockCount());
-//        assertEquals(1, customer.ownedCarsCount());
-//    }
+    @Test
+    public void canBuyACar() {
+        customer.buyCar(car);
+        assertEquals(1, customer.ownedCarsCount());
+        assertEquals(80.5, customer.getMoney(), 0.1);
+    }
 
 
 

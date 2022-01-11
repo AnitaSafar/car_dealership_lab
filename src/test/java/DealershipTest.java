@@ -18,6 +18,7 @@ public class DealershipTest {
     Tyre tyre;
     Battery battery;
     BrakePad brakePad;
+    Customer customer;
 
     @Before
     public void before() {
@@ -29,6 +30,7 @@ public class DealershipTest {
         battery = new Battery(16, "VW");
         brakePad = new BrakePad("VW");
         car = new PetrolCar(FuelType.PETROL, "VW", "Polo", 5, 20, "E5", windscreen, steeringWheel, engine, tyre, battery, brakePad);
+        customer = new Customer(100.5);
     }
 
     @Test
@@ -45,7 +47,8 @@ public class DealershipTest {
     @Test
     public void canSellCar() {
         dealership.addCarToStock(car);
-        dealership.sellCar(car);
+        dealership.sellCar(car, customer);
         assertEquals(0, dealership.stockCount());
+        assertEquals(40, dealership.getTill(), 0.1);
     }
 }

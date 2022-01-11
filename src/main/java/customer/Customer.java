@@ -46,6 +46,8 @@ public class Customer {
     public void buyCar(Car car) {
         if (hasEnoughMoney(car)) {
             addCar(car);
+            this.money -= car.getPrice();
         }
     }
+
 }
