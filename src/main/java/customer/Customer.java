@@ -1,6 +1,7 @@
 package customer;
 
 import vehicles.Car;
+import vehicles.PetrolCar;
 
 import java.util.ArrayList;
 
@@ -9,9 +10,9 @@ public class Customer {
     private double money;
     private ArrayList<Car> ownedCars;
 
-    public Customer(double money, ArrayList<Car> ownedCars) {
+    public Customer(double money) {
         this.money = money;
-        this.ownedCars = ownedCars;
+        this.ownedCars = new ArrayList<Car>();
     }
 
     public double getMoney() {
@@ -28,5 +29,13 @@ public class Customer {
 
     public void setOwnedCars(ArrayList<Car> ownedCars) {
         this.ownedCars = ownedCars;
+    }
+
+    public void addCar(Car car) {
+        this.ownedCars.add(car);
+    }
+
+    public int ownedCarsCount() {
+        return this.ownedCars.size();
     }
 }
