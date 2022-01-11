@@ -1,5 +1,6 @@
 import components.*;
 import customer.Customer;
+import dealership.Dealership;
 import org.junit.Before;
 import org.junit.Test;
 import vehicles.Car;
@@ -12,12 +13,14 @@ public class CustomerTest {
 
     Customer customer;
     PetrolCar car;
+    PetrolCar car2;
     Windscreen windscreen;
     SteeringWheel steeringWheel;
     Engine engine;
     Tyre tyre;
     Battery battery;
     BrakePad brakePad;
+    Dealership dealership;
 
     @Before
     public void before() {
@@ -29,6 +32,8 @@ public class CustomerTest {
         battery = new Battery(16, "VW");
         brakePad = new BrakePad("VW");
         car = new PetrolCar(FuelType.PETROL, "VW", "Polo", 5, 20, "E5", windscreen, steeringWheel, engine, tyre, battery, brakePad);
+        car2 = new PetrolCar(FuelType.PETROL, "VW", "Polo", 5, 101, "E5", windscreen, steeringWheel, engine, tyre, battery, brakePad);
+        dealership = new Dealership(20);
     }
 
     @Test
@@ -41,6 +46,21 @@ public class CustomerTest {
         customer.addCar(car);
         assertEquals(1, customer.ownedCarsCount());
     }
+
+    @Test
+    public void canAffordCar() {
+        assertEquals(true, customer.hasEnoughMoney(car));
+        assertEquals(false, customer.hasEnoughMoney(car2));
+    }
+
+//    @Test
+//    public void canBuyACar() {
+//        dealership.addCarToStock(car);
+//        customer.buyCar(car);
+//        assertEquals(0, dealership.stockCount());
+//        assertEquals(1, customer.ownedCarsCount());
+//    }
+
 
 
 }

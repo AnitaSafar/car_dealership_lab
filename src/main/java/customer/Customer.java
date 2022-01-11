@@ -38,4 +38,14 @@ public class Customer {
     public int ownedCarsCount() {
         return this.ownedCars.size();
     }
+
+    public boolean hasEnoughMoney(Car car) {
+        return this.money >= car.getPrice();
+    }
+
+    public void buyCar(Car car) {
+        if (hasEnoughMoney(car)) {
+            addCar(car);
+        }
+    }
 }

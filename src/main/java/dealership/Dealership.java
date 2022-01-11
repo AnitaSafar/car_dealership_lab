@@ -1,6 +1,7 @@
 package dealership;
 
 import vehicles.Car;
+import vehicles.PetrolCar;
 
 import java.util.ArrayList;
 
@@ -9,9 +10,9 @@ public class Dealership {
     private double till;
     private ArrayList<Car> stock;
 
-    public Dealership(double till, ArrayList<Car> stock) {
+    public Dealership(double till) {
         this.till = till;
-        this.stock = stock;
+        this.stock = new ArrayList<Car>();
     }
 
     public double getTill() {
@@ -28,5 +29,17 @@ public class Dealership {
 
     public void setStock(ArrayList<Car> stock) {
         this.stock = stock;
+    }
+
+    public void addCarToStock(Car car) {
+        this.stock.add(car);
+    }
+
+    public int stockCount() {
+        return this.stock.size();
+    }
+
+    public void sellCar(Car car) {
+        this.stock.remove(car);
     }
 }
